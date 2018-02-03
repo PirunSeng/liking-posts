@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+<hr>
+<% @posts.each do |post| %>
+  <h3><%= link_to post.title, post %></h3>
+  <div>
+    <%= simple_format post.content %>
+    <p id="post_<%= post.id %>_likes"><%= render partial: 'likes', locals: { post: post } %></p>
+  </div>
+<% end %>
+<hr>
+
+<%= link_to 'New Post', new_post_path %>
